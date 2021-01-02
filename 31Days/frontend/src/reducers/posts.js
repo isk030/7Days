@@ -1,25 +1,25 @@
-import { GET_LEADS, DELETE_LEAD, ADD_LEAD} from '../actions/types.js';
+import { GET_POSTS, DELETE_POST, ADD_POST} from '../actions/types.js';
 
 const initialState = {
-    leads: []
+    posts: []
 }
 
 export default (state=initialState, action) => {
     switch(action.type) {
-        case GET_LEADS:
+        case GET_POSTS:
             return {
                 ...state,
-                leads: action.payload
+                posts: action.payload
             };
-        case DELETE_LEAD:
+        case DELETE_POST:
             return {
                 ...state,
-                leads: state.leads.filter(lead => lead.id !== action.payload)
+                posts: state.posts.filter(post => post.id !== action.payload)
             };
-        case ADD_LEAD:
+        case ADD_POST:
             return {
                 ...state,
-                leads: [...state.leads, action.payload]
+                posts: [...state.posts, action.payload]
             }
         default:
             return state

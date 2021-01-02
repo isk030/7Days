@@ -1,16 +1,16 @@
 import React, {Fragment} from 'react';
 import Form from "./Form";
-import Leads from "./Leads";
+import Posts from "./Posts";
 
-const MyComponent = () => {
+const Dashboard = () => {
     return (
         <div>
             <Fragment>
                 <Form/>
-                <Leads/>
+                <Posts/>
             </Fragment>
         </div>
     );
 };
 
-export default MyComponent;
+export default Dashboard;
