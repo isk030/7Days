@@ -17,7 +17,7 @@ class Form extends Component {
     onChange = e => this.setState({[e.target.name]: e.target.value});
 
     onSubmit = e => {
-        e.preventDefault();
+        //e.preventDefault();
         const {message} = this.state;
         const Post = {message};
         this.props.addPost(Post);
@@ -31,8 +31,8 @@ class Form extends Component {
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Message</label>
-                        <textarea
-                            className="form-control"
+                        <input
+                            className="form-control text-center"
                             type="text"
                             name="message"
                             onChange={this.onChange}

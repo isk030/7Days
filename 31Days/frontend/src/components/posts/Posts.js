@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import PropTypes from 'prop-types';
-import {deletePost, getPosts} from "../../actions/posts";
+import {deletePost, dislikePost, getPosts, likePost} from "../../actions/posts";
 
 class Posts extends Component {
     static propTypes = {
         posts: PropTypes.array.isRequired,
         getPosts: PropTypes.func.isRequired,
         deletePost: PropTypes.func.isRequired,
+        likePost: PropTypes.func.isRequired,
+        dislikePost: PropTypes.func.isRequired,
     }
 
     componentDidMount() {
@@ -21,11 +23,11 @@ class Posts extends Component {
                 {this.props.posts.map(Post => (
                     <div className="card my-3" key={Post.id}>
                         <div className="card-body">
-                            <h5 className="card-title">{Post.name}</h5>
+                            <h5 className="card-title">{Post.like_count}</h5>
                             <div className="container text-center mb-5">
                                 <div className="row">
                                     <div className="col">
-                                        <h5 className="card-text">Fake Name</h5>
+                                        <h5 className="card-text">{Post.fail_count}</h5>
                                     </div>
                                     <div className="col-5">
                                         <div className="row">
@@ -45,17 +47,31 @@ class Posts extends Component {
                                         </div>
                                     </div>
                                     <div className="col">
-                                        <h5 className="card-text">Toxic Meter</h5>
+                                        <h5 className="card-text">{Post.like_count / Post.fail_count}</h5>
                                     </div>
                                 </div>
                             </div>
-                            <button className="btn btn-success btn-sm">Like
-                            </button>
-                            <button className="btn btn-danger btn-sm">Fail
-                            </button>
-                            <button onClick={this.props.deletePost.bind(this, Post.id)}
-                                    className="btn btn-info btn-sm">Delete
-                            </button>
+                            <div className="row">
+                                <div className="col px-0">
+                                    <button className="btn btn-success btn-sm btn-block "
+                                            onClick={this.props.likePost.bind(this, Post)}>Like
+                                    </button>
+                                </div>
+                                <div className="col px-0">
+                                    <button className="btn btn-danger btn-sm btn-block"
+                                            onClick={this.props.dislikePost.bind(this, Post)}>Fail
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col px-0">
+                                    <button onClick={this.props.deletePost.bind(this, Post.id)}
+                                            className="btn btn-info btn-sm">Delete
+                                    </button>
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
                 )).reverse()}
@@ -68,5 +84,10 @@ const mapStateToProps = state => ({
     posts: state.posts.posts
 })
 
-export default connect(mapStateToProps, {getPosts: getPosts, deletePost: deletePost})(Posts);
+export default connect(mapStateToProps, {
+    getPosts: getPosts,
+    deletePost: deletePost,
+    likePost: likePost,
+    dislikePost: dislikePost
+})(Posts);
 
