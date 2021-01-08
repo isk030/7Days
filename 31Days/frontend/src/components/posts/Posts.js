@@ -72,7 +72,7 @@ class Posts extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <hr className="m-0" style={{borderColor: "#71869c"}}/>
+                            <hr className="m-0" />
                             <div className="row">
                                 <div className="col pr-0">
                                     <button
@@ -91,7 +91,7 @@ class Posts extends Component {
                                     </button>
                                 </div>
                             </div>
-                            <hr className="m-0" style={{borderColor: "#71869c"}}/>
+                            <hr className="m-0"/>
                             <div className="row">
                                 <div className="col my-1">
                                     <button onClick={this.props.deletePost.bind(this, Post.id)}
