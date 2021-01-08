@@ -27,10 +27,10 @@ class Form extends Component {
         const {message} = this.state;
         return (
             <div className="card card-body mt-4 mb-4 text-center">
-                    <h2>Add Post</h2>
+                <h2>Add a wisdom!</h2>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <label>Message</label>
+                        <label>Temet nosce!</label>
                         <input
                             className="form-control text-center"
                             type="text"
@@ -46,8 +46,7 @@ class Form extends Component {
                     </div>
                 </form>
             </div>
-        )
-            ;
+        );
     }
 }
 

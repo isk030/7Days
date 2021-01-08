@@ -25,14 +25,14 @@ class Posts extends Component {
                 {this.props.posts.map(Post => (
                     <div className="card my-3" key={Post.id}>
                         <div className="card-body">
-                            <div className="container text-center mb-1">
-                                <div className="row">
+                            <div className="container-fluid text-center mb-1">
+                                <div className="row flex-nowrap">
                                     <div className="col">
                                         <h6 className="card-text">{Post.fake_name}</h6>
                                         <img src={Post.fake_avatar} className="rounded-circle" alt=""/>
-                                        <p className="p-0 m-0">aus {Post.fake_location}</p>
+                                        <p className="p-0 m-0">from {Post.fake_location}</p>
                                     </div>
-                                    <div className="col-6">
+                                    <div className="col-4 px-0">
                                         <div className="row">
                                             <div className="col text-left">
                                                 <i className="fas fa-quote-left fa-2x text-muted"></i>
@@ -64,7 +64,7 @@ class Posts extends Component {
                                         </div>
                                         <div className="row">
                                             <div className="col">
-                                                <p className="p-0 m-0">Dieser Post ist noch 7 Tage online</p>
+                                                <p className="p-0 m-0">This wisdom will die in 7 days!</p>
                                             </div>
                                         </div>
 
