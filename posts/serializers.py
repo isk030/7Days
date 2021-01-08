@@ -18,7 +18,7 @@ class PostSerializer(serializers.ModelSerializer):
         post = Post(
             message=validated_data['message'],
             fake_name=fake.first_name_nonbinary(),
-            fake_avatar='https://i.pravatar.cc/75?img='+str(random.randint(0,70)),
+            fake_avatar='https://i.pravatar.cc/125?img='+str(random.randint(0,70)),
             fake_location=fake.city()
         )
         post.save()
