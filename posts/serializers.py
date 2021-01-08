@@ -1,6 +1,12 @@
 from rest_framework import serializers
 
 from posts.models import Post
+from faker import Faker
+import random
+
+
+fake = Faker('de_DE')
+
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -11,8 +17,9 @@ class PostSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         post = Post(
             message=validated_data['message'],
-            score=80,
-            like_count=1000
+            fake_name=fake.first_name_nonbinary(),
+            fake_avatar='https://i.pravatar.cc/75?img='+str(random.randint(0,70)),
+            fake_location=fake.city()
         )
         post.save()
         return post

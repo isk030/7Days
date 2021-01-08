@@ -12,10 +12,13 @@ class Post(models.Model):
     message = models.TextField(max_length=500, blank=True, unique=True)
     score = models.DecimalField(default=0, decimal_places=2, max_digits=5)
     created_at = models.DateTimeField(auto_now_add=True)
+    fake_name = models.TextField(max_length=50, default="John Doe")
+    fake_avatar = models.TextField(max_length=500, blank=True)
+    fake_location = models.TextField(max_length=500, blank=True)
     expires_at = models.DateTimeField(default=get_mod_time(datetime.now(timezone.utc)))
-    like_count = models.IntegerField(default=0)
-    fail_count = models.IntegerField(default=0)
-    like_index = models.DecimalField(default=0, decimal_places=2, max_digits=5)
+    like_count = models.IntegerField(default=0.0)
+    fail_count = models.IntegerField(default=0.0)
+    like_index = models.DecimalField(default=0.0, decimal_places=2, max_digits=5)
 
 
 
