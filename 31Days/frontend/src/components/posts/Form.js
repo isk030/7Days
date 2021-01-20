@@ -44,11 +44,11 @@ class Form extends Component {
                                 input-id='client_input'
                                 demo-settings-json="{
           &quot;gradientColors&quot;: [&quot;#25C1F9&quot;,&quot;#7C4DFF&quot;,&quot;#D400F9&quot;],
-          &quot;toxicScoreThreshold&quot;: 0.23,
+          &quot;toxicScoreThreshold&quot;: 0.04,
           &quot;neutralScoreThreshold&quot;: 0.3,
-          &quot;showFeedbackForNeutralScores&quot;: false,
+          &quot;showFeedbackForNeutralScores&quot;: true,
           &quot;showFeedbackForLowScores&quot;: false,
-          &quot;feedbackText&quot;: [&quot;&quot;,&quot;&quot;,&quot;x% likely to be toxic. Please edit.&quot;],
+          &quot;feedbackText&quot;: [&quot;&quot;,&quot;&quot;,&quot;x% likely to be toxic. Your Post will be deleted earlier.&quot;],
           &quot;loadingIconStyle&quot;: &quot;circle_square_diamond&quot;,
           &quot;usePluginEndpoint&quot;: true,
           &quot;modelName&quot;: &quot;TOXICITY&quot;,

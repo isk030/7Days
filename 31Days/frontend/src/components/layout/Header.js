@@ -5,7 +5,7 @@ class Header extends Component {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-primary sticky-top"
                  style={{justifyContent: "center"}}>
-                <span className="h1 text-light">31 Days</span>
+                <span className="h1 text-light">7 Days</span>
 
             </nav>
         );
