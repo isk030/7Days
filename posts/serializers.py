@@ -31,8 +31,8 @@ def get_rating(text):
         }
 
         response = service.comments().analyze(body=analyze_request).execute()
-
         return response.get('attributeScores').get('TOXICITY').get('summaryScore').get('value')
+
 
 
 def calc_last_days(score, fail_index):
@@ -58,7 +58,10 @@ class PostSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         if instance.like_count == 0 and instance.fail_count == 0:
-            score = get_rating(instance.message)
+            try:
+                score = get_rating(instance.message)
+            except Exception:
+                score = 2
             instance.score = score
         instance.like_count = validated_data.get('like_count', instance.like_count)
         instance.fail_count = validated_data.get('fail_count', instance.fail_count)
