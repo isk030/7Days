@@ -17,6 +17,8 @@ import dj_database_url
 import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from django.conf.global_settings import DATABASES
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -107,27 +109,26 @@ WSGI_APPLICATION = '31Days.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-
-    'default': {
-
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-        'NAME': 'postgres',
-
-        'USER': 'postgres',
-
-        'PASSWORD': 'iskender',
-
-        'HOST': 'localhost',
-
-        'PORT': '',
-        'CONN_MAX_AGE': 500
-    }
-
-}
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
+# DATABASES = {
+#
+#     'default': {
+#
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#
+#         'NAME': 'postgres',
+#
+#         'USER': 'postgres',
+#
+#         'PASSWORD': 'iskender',
+#
+#         'HOST': 'localhost',
+#
+#         'PORT': '',
+#         'CONN_MAX_AGE': 500
+#     }
+#
+# }
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 
 # Password validation
