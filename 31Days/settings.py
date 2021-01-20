@@ -12,14 +12,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+
+import dj_database_url
 import django_heroku
-import environ
-env = environ.Env(
-    # set casting, default value
-    DEBUG=(bool, False)
-)
-# reading .env file
-environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,15 +24,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = '%m9ixx=@(y8*6l1sz7i)k6b&lcn7p_-=z#e*x#qe-*dnturf37'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
+DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', '7Days.herokuapp.com']
 
 
 # Application definition
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -49,8 +45,7 @@ INSTALLED_APPS = [
     'posts',
     'rest_framework',
     '31Days.frontend',
-    'whitenoise.runserver_nostatic',
-    ''
+    'whitenoise.runserver_nostatic'
 ]
 
 REST_FRAMEWORK = {
@@ -76,6 +71,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
+
+
 
 ROOT_URLCONF = '31Days.urls'
 
@@ -124,10 +121,12 @@ DATABASES = {
         'HOST': 'localhost',
 
         'PORT': '',
-
+        'CONN_MAX_AGE': 500
     }
 
 }
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -207,5 +206,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+#location where django collect all static files
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
+# location where you will store your static files
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'project_name/static')
+]
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_URL = '/media/'
 
 django_heroku.settings(locals())
