@@ -31,7 +31,7 @@ SECRET_KEY = '%m9ixx=@(y8*6l1sz7i)k6b&lcn7p_-=z#e*x#qe-*dnturf37'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'sevendayz.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -46,8 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'posts',
     'rest_framework',
-    '31Days.frontend',
-    'whitenoise.runserver_nostatic'
+    '31Days.frontend'
 ]
 
 REST_FRAMEWORK = {
@@ -71,8 +70,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware'
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
 
 
@@ -124,12 +122,10 @@ WSGI_APPLICATION = '31Days.wsgi.application'
 #         'HOST': 'localhost',
 #
 #         'PORT': '',
-#         'CONN_MAX_AGE': 500
 #     }
 #
 # }
 
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 
 # Password validation
@@ -209,13 +205,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-#location where django collect all static files
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
-# location where you will store your static files
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'project_name/static')
-]
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
 
 django_heroku.settings(locals())
+
+prod_db  =  dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
