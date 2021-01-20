@@ -109,27 +109,27 @@ WSGI_APPLICATION = '31Days.wsgi.application'
 #     }
 # }
 
-DATABASES = {
+# DATABASES = {
+#
+#     'default': {
+#
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#
+#         'NAME': 'postgres',
+#
+#         'USER': 'postgres',
+#
+#         'PASSWORD': 'iskender',
+#
+#         'HOST': 'localhost',
+#
+#         'PORT': '',
+#         'CONN_MAX_AGE': 500
+#     }
+#
+# }
 
-    'default': {
-
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-        'NAME': 'postgres',
-
-        'USER': 'postgres',
-
-        'PASSWORD': 'iskender',
-
-        'HOST': 'localhost',
-
-        'PORT': '',
-        'CONN_MAX_AGE': 500
-    }
-
-}
-
-# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 
 # Password validation
