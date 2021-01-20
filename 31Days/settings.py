@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '%m9ixx=@(y8*6l1sz7i)k6b&lcn7p_-=z#e*x#qe-*dnturf37'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -107,24 +107,24 @@ WSGI_APPLICATION = '31Days.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#
-#     'default': {
-#
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#
-#         'NAME': 'postgres',
-#
-#         'USER': 'postgres',
-#
-#         'PASSWORD': 'iskender',
-#
-#         'HOST': 'localhost',
-#
-#         'PORT': '',
-#     }
-#
-# }
+DATABASES = {
+
+    'default': {
+
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+        'NAME': 'postgres',
+
+        'USER': 'postgres',
+
+        'PASSWORD': 'iskender',
+
+        'HOST': 'localhost',
+
+        'PORT': '',
+    }
+
+}
 
 
 
