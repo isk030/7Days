@@ -29,9 +29,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '%m9ixx=@(y8*6l1sz7i)k6b&lcn7p_-=z#e*x#qe-*dnturf37'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['sevendayz.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'sevendayz.herokuapp.com']
 
 
 # Application definition
@@ -129,8 +129,7 @@ WSGI_APPLICATION = '31Days.wsgi.application'
 #
 # }
 
-prod_db  =  dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(prod_db)
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 
 # Password validation
