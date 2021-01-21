@@ -35,6 +35,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['sevendayz.herokuapp.com', '127.0.0.1:8000']
 
+STATIC_URL = '/static/'
+STATICFILE_DIRS = [
+    os.path.join(BASE_DIR, '31Days/frontend/static')
+]
 
 # Application definition
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
