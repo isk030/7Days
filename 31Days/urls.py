@@ -1,9 +1,10 @@
 
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('', include('31Days.frontend.urls')),
     path('', include('posts.urls')),
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls)
 ]
