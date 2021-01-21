@@ -30,7 +30,6 @@ class PostsAdmin(admin.ModelAdmin):
             item["data"]=Post.objects.all().count()
 
 
-
         # Serialize and attach the chart data to the template context
         as_json = json.dumps(list(chart_data), cls=DjangoJSONEncoder)
         extra_context = extra_context or {"chart_data": as_json}

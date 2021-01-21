@@ -56,11 +56,6 @@ REST_FRAMEWORK = {
     ),
 }
 
-options = {
-              'db_table': 'tblclients',
-              'managed': True,
-          },
-
 
 
 MIDDLEWARE = [
