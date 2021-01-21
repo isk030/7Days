@@ -33,7 +33,6 @@ class PostsAdmin(admin.ModelAdmin):
         # Serialize and attach the chart data to the template context
         as_json = json.dumps(list(chart_data), cls=DjangoJSONEncoder)
         extra_context = extra_context or {"chart_data": as_json}
-        print(extra_context)
 
         # Call the superclass changelist_view to render the page
         return super().changelist_view(request, extra_context=extra_context)

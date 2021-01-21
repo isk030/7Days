@@ -31,6 +31,7 @@ def get_rating(text):
         }
 
         response = service.comments().analyze(body=analyze_request).execute()
+        print(response.get('attributeScores').get('TOXICITY').get('summaryScore').get('value'))
         return response.get('attributeScores').get('TOXICITY').get('summaryScore').get('value')
 
 
