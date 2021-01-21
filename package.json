@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development --watch 31Days/frontend/src/index.js --output 31Days/frontend/static/frontend/main.js ",
-    "build": "webpack --mode production 31Days/frontend/src/index.js --output 31Days/frontend/static/frontend/main.js"
+    "build": "webpack --mode production 31Days/frontend/src/index.js --output 31Days/frontend/static/frontend/main.js",
+    "postinstall": "npm run build"
   },
   "keywords": [],
   "author": "",

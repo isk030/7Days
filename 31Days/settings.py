@@ -19,15 +19,12 @@ import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 from django.conf.global_settings import DATABASES
 
-BASE_DIR = Path(__file__).resolve().parent.parent
 
-PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
-STATIC_ROOT  =   os.path.join(PROJECT_ROOT, 'staticfiles')
-STATIC_URL = '/static/'
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'frontend'),
-)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -37,7 +34,7 @@ SECRET_KEY = '%m9ixx=@(y8*6l1sz7i)k6b&lcn7p_-=z#e*x#qe-*dnturf37'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'sevendayz.herokuapp.com']
+ALLOWED_HOSTS = ['sevendayz.herokuapp.com', '127.0.0.1:8000']
 
 
 # Application definition
