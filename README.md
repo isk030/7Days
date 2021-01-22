@@ -4,6 +4,7 @@
 
   - Django Backend
   - Integriertes React Js mit Redux Frontend nach folgendem Vorbild: https://mattsegal.dev/django-react.html
+  - Ausgeführtes Tutorial: https://www.youtube.com/watch?v=GieYIzvdt2U&t=4s
   - Perspective API powered by Google Labs
   - PostgreSQL Datanbank
 
