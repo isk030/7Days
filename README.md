@@ -1,6 +1,6 @@
 # 7 Days
 
-7 Days ist eine experimentelles Board, welches Weisheiten anonym auflistet und nach Toxic Content bewertet. Je nach dem wie hoch dieser Wert ist und die Weisheit beliebt ist wird die maximal Zeit von 7 Tagen, die der Post "lebt" gekürzt. Aktuell gehostet: sevendayz.herokuapp.com
+7 Days ist eine experimentelles Board, welches Weisheiten anonym auflistet und nach Toxic Content bewertet. Je nach dem wie hoch dieser Wert ist und die Weisheit beliebt ist wird die maximal Zeit von 7 Tagen, die der Post "lebt" gekürzt. Aktuell gehostet: http://sevendayz.herokuapp.com/
 
   - Django Backend
   - Integriertes React Js mit Redux Frontend nach folgendem Vorbild: https://mattsegal.dev/django-react.html
