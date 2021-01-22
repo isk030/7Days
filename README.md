@@ -10,7 +10,7 @@
 # Funktionsweise und Aufbau
 Aufbau:
 
-![Architektur](https://raw.githubusercontent.com/isk030/31Days/master/Arch1.jpg?token=AGDCEG4OTEDVN27LRGWOLD3ABMSN4)
+![Architektur](https://raw.githubusercontent.com/isk030/31Days/master/Arch1.jpg?token=AGDCEG62FMAIQ7X33AWVLZLABMTYK)
 
 Funktion:
 Es können Weisheiten gepostet werden. Wenn man seine Weisheit eingetragen hat wird bereits in der Eingabemaske eine Bewertung über die Toxicity über die Perpective API abgefragt und angezeigt. Diese Bewertung und die Beliebtheit des Posts (likes und fails) entscheidet darüber, wie lange dieser Post "leben" darf.
