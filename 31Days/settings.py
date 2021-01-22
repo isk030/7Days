@@ -15,7 +15,8 @@ import os
 
 import dj_database_url
 import django_heroku
-
+import env_file
+env_file.load('.env')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 from django.conf.global_settings import DATABASES
 
@@ -28,10 +29,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '%m9ixx=@(y8*6l1sz7i)k6b&lcn7p_-=z#e*x#qe-*dnturf37'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = ['*']
 
@@ -122,7 +123,7 @@ DATABASES = {
 
         'USER': 'postgres',
 
-        'PASSWORD': 'iskender',
+        'PASSWORD': os.environ.get('DB_PW'),
 
         'HOST': 'localhost',
 
