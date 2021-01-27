@@ -3,7 +3,6 @@
 from posts.models import Post
 from rest_framework import viewsets, permissions
 from .serializers import PostSerializer
-import logging
 from datetime import datetime, timezone
 
 
